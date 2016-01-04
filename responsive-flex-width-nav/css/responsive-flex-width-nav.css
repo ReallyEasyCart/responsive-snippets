@@ -1,0 +1,18 @@
+@media screen and (min-width: 48em) {
+    .flexbox ul.nav-primary {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .flexbox ul.nav-primary li,
+    .flexbox ul.nav-primary a {
+        display: block;
+        flex-grow: 1;
+        text-align: center;
+    }
+    .flexbox ul.nav-primary a:before {
+        position: absolute;
+        left: -5px;
+        padding-right: 0;
+    }
+}
