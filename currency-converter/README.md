@@ -5,13 +5,10 @@ Live change the currency on the front end with customizable buttons to switch be
 
 ## Using the Currency Converter
 
-1. Copy the currency-converter.css file into the site CSS folder
-2. If you are not pasting the CSS directly into the site.css.twig file, don't forget to:
-`{% include "path/to/file" %}`
-3. Copy the currency-converter.js file into the site JS folder
-4. Again, if you are not pasting the JS directly into the site.js.twig, don't forget to:
-`{% include "path/to/file" %}`
-5. Add the following HTML into the template where you want the currency converter to be displayed (i.e. On Hiroboy it is the header.html.twig file):
+1. Either copy the CSS into the site.css.twig file, or import it using: `{% import "path/to/file" %}`
+2. Either copy the JS into the site.js.twig file, or import it using: `{% import "path/to/file" %}`
+3. Source the money.min.js file that is in /js/lib. (The way I have done this on Hiroboy is to create a new file in the js folder, then in site.js.twig I added: `{{ source("js/custom_app.js") }}` to the top of the file)
+4. Add the following HTML into the template where you want the currency converter to be displayed (On Hiroboy it is the header.html.twig file):
 ```
 <ul class="rec-currencies">
       <li>Change Currency:</li>
