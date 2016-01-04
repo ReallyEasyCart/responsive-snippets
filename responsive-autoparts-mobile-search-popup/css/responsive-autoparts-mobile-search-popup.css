@@ -1,0 +1,14 @@
+.open-mmy-search {
+	color: #303E49;
+	text-transform: uppercase;
+	display: block;
+	margin: 5px 0;
+	text-align: center;
+	font-weight: bold;
+}
+/* Hide the button on non-mobile */
+@media screen and (min-width: 48em) {
+	.open-mmy-search {
+		display: none;
+	}
+}

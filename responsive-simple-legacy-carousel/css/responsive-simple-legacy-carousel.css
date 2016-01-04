@@ -1,0 +1,54 @@
+/* hide old titles, new ones shown inside template as h2s */
+.product-info-releated-products-container h3 {
+    display: none;
+}
+/* cancel default list styling */
+.products_horizontal_carousel {}
+.products_horizontal_carousel ul {
+    margin: 0;
+    padding: 0;
+}
+/* default to 2 per line (49 instead of 50 to make up for slight text gap with inline-block) */
+.products_horizontal_carousel li {
+    display: inline-block;
+    width: 49%;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.products_horizontal_carousel a {
+    color: inherit;
+    text-decoration: none;
+}
+.products_horizontal_carousel img {
+    margin: auto;
+}
+.mini_product_name { font-weight: bold; }
+.mini_product_rating { display: none; }
+/* button styling */
+.mini_product_link {
+    color: #FFF;
+    padding: 0.5em;
+}
+/* change count accross as screen increases */
+@media screen and (min-width: 35.5em) {
+    /* can now show 3 accross */
+    .products_horizontal_carousel li {
+        width: 32%;
+    }
+}
+@media screen and (min-width: 48em) {
+    /* back down to 2 as sidebar is now showing */
+    .products_horizontal_carousel li {
+        width: 49%;
+    }
+    /* float image to the side as thers more room */
+    .products_horizontal_carousel img {
+        float: left;
+    }
+}
+@media screen and (min-width: 64em) {
+    /* and back to 3 again */
+    .products_horizontal_carousel li {
+        width: 32%;
+    }
+}
