@@ -24,6 +24,13 @@
 }
 .mini_product_name { font-weight: bold; }
 .mini_product_rating { display: none; }
+
+/* old price when on special */
+.mini_product_special_offer {
+    color: red;
+    text-decoration: line-through;
+}
+
 /* button styling */
 .mini_product_link {
     color: #FFF;
