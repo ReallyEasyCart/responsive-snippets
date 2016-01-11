@@ -5,4 +5,5 @@ This small bit of CSS will dynamically space the links in a navbar using flex. T
 
 ## Using the Responsive Flex Width Nav
 
-1. All you need to do is either copy the CSS into the site.css.twig file, or import it using: `{% import "path/to/file" %}`
+1. Make sure that the nav is spaced correctly before applying this CSS for browsers that don't support flex
+2. All you need to do is either copy the CSS into the site.css.twig file, or include it using: `{% include "path/to/file" %}`

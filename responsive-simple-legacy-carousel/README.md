@@ -5,4 +5,4 @@ This doesn't put them in a carousel, instead it styles each product into a simpl
 
 ## Using the Responsive Simple Legacy Carousel
 
-1. Either copy the CSS into the site.css.twig file, or import it using: `{% import "path/to/file" %}`
+1. Either copy the CSS into the site.css.twig file, or include it using: `{% include "path/to/file" %}`
