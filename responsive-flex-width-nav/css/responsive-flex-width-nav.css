@@ -22,9 +22,4 @@
                 flex-grow: 1;
         text-align: center;
     }
-    .flexbox ul.nav-primary a:before {
-        position: absolute;
-        left: -5px;
-        padding-right: 0;
-    }
 }
