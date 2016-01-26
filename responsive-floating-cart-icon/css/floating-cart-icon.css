@@ -1,0 +1,23 @@
+
+/*
+    Floating cart icon (desktop only)
+
+*/
+a.floating-cart-icon {
+    display: none;
+}
+@media screen and (min-width: 80em) {
+    a.floating-cart-icon {
+        display: block;
+
+        position: fixed;
+        top: 10%;
+        left: 0;
+        color: white;
+        background-color: blue;
+        cursor: pointer;
+        border-radius: 0 5px 5px 0;
+        box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.6);
+        z-index: 99;
+    }
+}
