@@ -1,0 +1,243 @@
+/* Flexbox */
+@media screen and (min-width: 48em) {
+    .flexbox ul.nav-primary {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -webkit-justify-content: space-around;
+            -ms-flex-pack: distribute;
+                justify-content: space-around;
+    }
+    .flexbox ul.nav-primary li,
+    .flexbox ul.nav-primary a {
+        display: block;
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+            -ms-flex-positive: 1;
+                flex-grow: 1;
+        text-align: center;
+    }
+}
+
+/* Mega Menu */
+nav.mega-menu .hide-unless-mobile {
+    display: none !important;
+}
+nav.mega-menu .menu-mobile {
+    display: none;
+    padding: 20px;
+}
+nav.mega-menu .menu-mobile:after {
+    content: "\f067";
+    font-family: "FontAwesome";
+    padding: 0;
+    float: right;
+    position: relative;
+    top: 50%;
+    transform: translateY(-25%);
+}
+nav.mega-menu .menu-dropdown-icon:before {
+    content: "\f067";
+    font-family: "FontAwesome";
+    display: none;
+    cursor: pointer;
+    float: right;
+    padding: 1.5em 2em;
+    background: #2c6683;
+    color: #FFF;
+}
+nav.mega-menu > ul.nav-primary {
+    margin: 0 auto;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+nav.mega-menu > ul.nav-primary:before,
+nav.mega-menu > ul.nav-primary:after {
+    content: "";
+    display: table;
+}
+nav.mega-menu > ul.nav-primary:after {
+    clear: both;
+}
+nav.mega-menu > ul.nav-primary > li {
+    float: left;
+    background: #3C8AB1;
+    padding: 0;
+    margin: 0;
+}
+nav.mega-menu > ul.nav-primary > li a {
+    text-decoration: none;
+    padding: 1em 2em;
+    display: block;
+    color: #FFF;
+}
+nav.mega-menu > ul.nav-primary > li:hover {
+    background: #327596;
+}
+nav.mega-menu > ul.nav-primary > li > ul {
+    display: none;
+    width: 100%;
+    background: #327596;
+    padding: 20px;
+    position: absolute;
+    z-index: 99;
+    left: 0;
+    margin: 0;
+    list-style: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+nav.mega-menu > ul.nav-primary > li > ul:before,
+nav.mega-menu > ul.nav-primary > li > ul:after {
+    content: "";
+    display: table;
+}
+nav.mega-menu > ul.nav-primary > li > ul:after {
+    clear: both;
+}
+nav.mega-menu > ul.nav-primary > li > ul > li {
+    margin: 0;
+    padding-bottom: 0;
+    list-style: none;
+    width: 25%;
+    background: none;
+    float: left;
+}
+nav.mega-menu > ul.nav-primary > li > ul > li a {
+    color: #FFF;
+    padding: .2em 0;
+    width: 95%;
+    display: block;
+    border-bottom: 1px solid #ccc;
+}
+nav.mega-menu > ul.nav-primary > li > ul > li > ul {
+    display: block;
+    padding: 0;
+    margin: 10px 0 0;
+    list-style: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+nav.mega-menu > ul.nav-primary > li > ul > li > ul:before,
+nav.mega-menu > ul.nav-primary > li > ul > li > ul:after {
+    content: "";
+    display: table;
+}
+nav.mega-menu > ul.nav-primary > li > ul > li > ul:after {
+    clear: both;
+}
+nav.mega-menu > ul.nav-primary > li > ul > li > ul > li {
+    float: left;
+    width: 100%;
+    padding: 10px 0;
+    margin: 0;
+    font-size: .8em;
+}
+nav.mega-menu > ul.nav-primary > li > ul > li > ul > li a {
+    border: 0;
+}
+nav.mega-menu > ul.nav-primary > li > ul.normal-sub {
+    width: 300px;
+    left: auto;
+    padding: 10px 20px;
+}
+nav.mega-menu > ul.nav-primary > li > ul.normal-sub > li {
+    width: 100%;
+}
+nav.mega-menu > ul.nav-primary > li > ul.normal-sub > li a {
+    border: 0;
+    padding: 1em 0;
+}
+#header .nav li li {
+    border-bottom: 0;
+}
+#header .nav li ul {
+    border: 0;
+    box-shadow: none;
+}
+/* ––––––––––––––––––––––––––––––––––––––––––––––––––
+Mobile style's
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media only screen and (max-width: 959px) {
+    nav.mega-menu ul.nav-secondary {
+        display: none !important;
+    }
+    nav.mega-menu .menu-mobile {
+        display: block;
+    }
+    nav.mega-menu .menu-dropdown-icon:before {
+        display: block;
+    }
+    nav.mega-menu > ul.nav-primary {
+        display: none;
+    }
+    nav.mega-menu > ul.nav-primary > li {
+        width: 100%;
+        float: none;
+        display: block;
+    }
+    nav.mega-menu > ul.nav-primary > li a {
+        padding: 1.5em;
+        width: 100%;
+        display: block;
+    }
+    nav.mega-menu > ul.nav-primary > li > ul {
+        position: relative;
+    }
+    nav.mega-menu > ul.nav-primary > li > ul.normal-sub {
+        width: 100%;
+    }
+    nav.mega-menu > ul.nav-primary > li > ul > li {
+        float: none;
+        width: 100%;
+        margin-top: 20px;
+    }
+    nav.mega-menu > ul.nav-primary > li > ul > li:first-child {
+        margin: 0;
+    }
+    nav.mega-menu > ul.nav-primary > li > ul > li > ul {
+        position: relative;
+    }
+    nav.mega-menu > ul.nav-primary > li > ul > li > ul > li {
+        float: none;
+    }
+    nav.mega-menu .show-on-mobile {
+        display: block !important;
+    }
+    nav.mega-menu .hide-unless-mobile {
+        display: block !important;
+    }
+}
+
+/* Secondary Nav */
+@media screen and (min-width: 48em) {
+    #header ul.nav-secondary {
+        padding-left: 16px;
+        padding-right: 16px;
+        display: flex;
+        list-style: none;
+        padding: 4px 8px 4px 8px;
+    }
+    #header .nav ul.nav-secondary a {
+        color: #FFF;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, .1);
+        text-decoration: none;
+    }
+    #header .nav ul.nav-secondary li:not(:first-child) a:before {
+        content: "|";
+        padding: 0 8px;
+    }
+}

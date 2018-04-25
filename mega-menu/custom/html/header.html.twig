@@ -1,0 +1,148 @@
+<!-- Header content -->
+<header id="header" class="layout-container" role="banner">
+    <div class="layout-container-inner clearfix">
+        {% block header_logo %}
+            <!-- Logo -->
+            <div class="header-logo pull-left-md">
+                {% if theme.config.show_logo %}
+                    <a href="{{ directory }}">
+                        <img src="{{ company.logo_image }}" alt="{{ company.name }}">
+                    </a>
+                {% elseif theme.config.show_company_name %}
+                    <a href="{{ directory }}">
+                        <strong class="header-title h1">{{ company.name }}</strong>
+                    </a>
+                    {% if theme.config.show_company_slogan %}
+                        <span class="header-slogan h3">{{ company.slogan }}</span>
+                    {% endif %}
+                {% endif %}
+            </div>
+        {% endblock %}
+
+        {% block header_search %}
+            {% if theme.config.show_search %}
+                <!-- search -->
+                <div class="header-search togglable search pull-right-md">
+                    <form action="/search" method="get">
+                        <input type="search" name="q" id="search-q" placeholder="Search this site...">
+                        <button type="submit" class="fa fa-search"> Search</button>
+                    </form>
+                </div>
+            {% endif %}
+        {% endblock %}
+
+        {% block header_nav %}
+            <!-- Main menu / nav -->
+            <nav class="header-nav nav nav-sub-indicators nav-sub-indicator-arrows mega-menu" id="navigation" role="navigation">
+
+                <ul class="nav-primary">
+                    <li class="is-current">
+                		<a accesskey="1" href="/Home.html" title="Home">Single Link</a>
+                	</li>
+                	<li>
+                		<a accesskey="2" href="#" title="About Us">Mega Menu</a>
+                		<ul class="has-background">
+                			<li>
+                				<a href="#">School</a>
+                				<ul>
+                					<li><a href="#">Leadership</a></li>
+                					<li><a href="#">History</a></li>
+                					<li><a href="#">Locations</a></li>
+                					<li><a href="#">Careers</a></li>
+                					<li><a href="#">Leadership</a></li>
+                					<li><a href="#">History</a></li>
+                					<li><a href="#">Locations</a></li>
+                					<li><a href="#">Careers</a></li>
+                					<li><a href="#">Leadership</a></li>
+                					<li><a href="#">History</a></li>
+                					<li><a href="#">Locations</a></li>
+                					<li><a href="#">Careers</a></li>
+                				</ul>
+                			</li>
+                			<li>
+                			    <a href="#">Stormtroopers</a>
+                			    <ul>
+                			        <li><img src="http://static.webshopapp.com/shops/178694/files/182389919/star-wars-fluid-star-wars-masked-troopers-displate.jpg" style="margin: auto; width: 80%;"></li>
+                			        <li><a href="#" style="text-align: center;">View more Stormtroopers</a></li>
+                			    </ul>
+                			</li>
+                			<li>
+                			    <a href="#">Avengers</a>
+                			    <ul>
+                			        <li><img src="http://static.webshopapp.com/shops/178694/files/168412448/marvel-falcon-marvel-dark-edition-displate.jpg" style="margin: auto; width: 80%;"></li>
+                			        <li><a href="#" style="text-align: center;">View more Avengers</a></li>
+                			    </ul>
+                			</li>
+                			<li>
+                				<a href="#">School</a>
+                				<ul>
+                					<li><a href="#">Leadership</a></li>
+                					<li><a href="#">History</a></li>
+            					</ul>
+            				</li>
+            				<li>
+                				<a href="#">School</a>
+                				<ul>
+                					<li><a href="#">Leadership</a></li>
+                					<li><a href="#">History</a></li>
+            					</ul>
+            				</li>
+                		</ul>
+                	</li>
+                	<li>
+                		<a accesskey="5" href="#" title="News">Dropdown</a>
+                		<ul>
+                			<li>
+                				<a href="/News/Demo.html" title="Demo">Demo</a>
+                			</li>
+                		</ul>
+                	</li>
+                	{% if setup.is_shop %}
+                        <li class="hide-unless-mobile"><a href="/shop.php?p=view_cart" class="open-cart">View Cart
+                            <span data-format="(%d)" class="cart-qty">{% if cart.qty != 0 %}({{ cart.qty }}){% endif %}</span>
+                        </a></li>
+                        <li class="hide-unless-mobile"><a href="/checkout.php">Checkout</a></li>
+                        <li class="hide-unless-mobile"><a href="/customer_home.php?p=previous_buys">Track Orders</a></li>
+                    {% endif %}
+
+                    {% if user.is_logged_in %}
+                        <li class="hide-unless-mobile"><a href="/admin/">Your Account</a></li>
+                        <li class="hide-unless-mobile"><a href="/pages/logout.php">Logout</a></li>
+                    {% else %}
+                        <li class="hide-unless-mobile"><a href="/login.php">Login</a></li>
+                        {% if setup.is_shop %}
+                            <li><a href="/register.php">Register</a></li>
+                        {% endif %}
+                    {% endif %}
+                </ul>
+
+                {% if theme.config.show_top_links %}
+                    <!-- secondary nav -->
+                    <ul class="nav-secondary nav-stripped nav-line-separators pull-right-md">
+
+                        {% if setup.is_shop %}
+                            <li><a href="/shop.php?p=view_cart" class="open-cart">View Cart
+                                <span data-format="(%d)" class="cart-qty">{% if cart.qty != 0 %}({{ cart.qty }}){% endif %}</span>
+                            </a></li>
+                            <li><a href="/checkout.php">Checkout</a></li>
+                            <li><a href="/customer_home.php?p=previous_buys">Track Orders</a></li>
+                        {% endif %}
+
+                        {% if user.is_logged_in %}
+                            <li><a href="/admin/">Your Account</a></li>
+                            <li><a href="/pages/logout.php">Logout</a></li>
+                        {% else %}
+                            <li><a href="/login.php">Login</a></li>
+                            {% if setup.is_shop %}
+                                <li><a href="/register.php">Register</a></li>
+                            {% endif %}
+                        {% endif %}
+
+                    </ul>
+                {% endif %}
+
+            </nav>
+        {% endblock %}
+
+    </div>
+</header>
