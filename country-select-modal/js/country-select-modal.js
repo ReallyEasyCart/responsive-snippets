@@ -110,8 +110,8 @@ jQuery(function ($) {
 
             if (!$.cookie('rec-country-select') && !getUrlParameter('overrideCookie')) {
                 // Get the tld of the domain (.co.uk, .com e.t.c) and the country code returned by ip-api.com
-                var tld = getUrlParameter('countrySelectTld') ? getUrlParameter('countrySelectTld') : location.hostname.match(/(\.(?:[a-z]{2,5}\.)?(?:[a-z]{2,5}))$/)[0];
-                var countryCode = getUrlParameter('countrySelectCode') ? getUrlParameter('countrySelectCode'): data.countryCode;
+                var tld = getUrlParameter('countrySelectTld') || location.hostname.match(/(\.(?:[a-z]{2,5}\.)?(?:[a-z]{2,5}))$/)[0];
+                var countryCode = getUrlParameter('countrySelectCode') || data.countryCode;
                 
                 // Using the relational objects of countries and continents; get the country name, continent code and continent name
                 var countryName = countries[countryCode].name,
@@ -130,7 +130,6 @@ jQuery(function ($) {
                         // Show the modal
                         var countrySelectModal = new ModalWindow({
                             type: 'country-select',
-                            closeOnBackgroundClick: false,
                             content: '<p style="margin-bottom: 1em;">' + title + '</p>\
                             <table style="width: 100%; border: 0; text-align: center;">\
                                 <tr>\
@@ -170,6 +169,11 @@ jQuery(function ($) {
                             }
                         });
 
+                        // Subscribe to the cookie modal close event so that we can re-pop the country select modal
+                        // due to only one modal window being allowed to be open at a time.
+
+                        // We had to add the cookie modal close event manually by putting "REC.Events.publish('cookie-modal-close');"
+                        // into cookie-policy.js in the part that says "modal.on('close', function () { ... }"
                         REC.Events.subscribe('cookie-modal-close', function () {
                             countrySelectModal.open();
                         });
