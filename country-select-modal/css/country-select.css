@@ -1,0 +1,12 @@
+.modal-window-is-country-select .modal-window-header {
+    display: none;
+}
+.modal-window-is-country-select a.close-country-modal {
+    text-decoration: none;
+    color: #000;
+    padding: 1em;
+    display: block;
+}
+.modal-window-is-country-select {
+    z-index: 2147483637;
+}
