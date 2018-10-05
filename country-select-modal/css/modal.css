@@ -1,0 +1,235 @@
+
+/*
+    Modal window styling
+
+    @see js/modules/modal.js
+
+    e.g.
+    <div class="modal-window-outer">
+        <div class="modal-window-inner">
+            <div class="modal-window-header">
+                <a class="modal-window-header-close">
+                    <i class="fa fa-close"></i>
+                </a>
+                <div class="modal-window-header-title">Title here</div>
+            </div>
+            <div class="modal-window-body">
+                Hello world
+            </div>
+            <div class="modal-window-footer"></div>
+        </div>
+    </div>
+
+*/
+
+.modal-is-open {
+    overflow: hidden;
+}
+
+/* ----- outer container -----  */
+/* modal semi-transparent background */
+.modal-window-outer {
+
+    /* hidden by default (not using display none vs block here to allow for css animation) */
+    opacity: 0;
+    visibility: hidden;
+
+    /* animate back out the modal (animation in covered by: .modal-is-open .modal-window-outer) */
+    transition: opacity 1s, visibility 0s 1s, max-height 0s 1s;
+
+    /* full screen */
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    /* on top */
+    z-index: 99999; /* old z-index remains for any old browsers with large zindex issues */
+    z-index: 4000000000; /* crazy big z-index needed for fighting tawk.to & the cookie policy (which inturn also had to be crazy to fight tawk.to lol) */
+
+    /* semi-transparent background */
+    background: rgba(0, 0, 0, 0.6);
+}
+.lt-ie9 .modal-window-outer {
+    /* For IE8 and less, ignore the effect and use display: none -> block for showing and hiding the modal
+    This works better with the filter used for the transparent background, else we get weird stages of the screen appearing black */
+    display: none;
+}
+.lt-ie9 .modal-is-open .modal-window-outer {
+    /* For IE8 and less, we also want a semi-transparent background
+    ("rgba" converted to the "argb" used in this filter, from: http://beijingyoung.com/articles/rgba-argb-converter/)
+    */
+    display: block;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+}
+
+/* when modal is active */
+.modal-is-open .modal-window-outer {
+    opacity: 1;
+    visibility: visible;
+
+    /* animate in */
+    transition: opacity 1s, visibility 0s, max-height 0s;
+
+    /* allow scrolling, only when open as to not show 2 scrollbars */
+    overflow: auto;
+}
+
+/* inner window */
+.modal-window-inner {
+    background: #FFF;
+    max-width: 35.5em;
+    margin: auto;
+
+    /*test height larger than screen*/
+    /*height: 800px;*/
+
+    /* initial position off screen, to then animate down */
+    transform: translate(0, -20%);
+    transition: transform 1s;
+
+    /* a little shadow */
+    box-shadow: 0 5px 1em rgba(0, 0, 0, 0.6);
+}
+
+.modal-is-open .modal-window-inner {
+    /* now move it back into view */
+    transform: translate(0, 0);
+}
+
+@media screen and (min-width: 35.5em) {
+    .modal-window-inner {
+        margin: 5% auto;
+    }
+}
+
+/* general padding */
+.modal-window-header,
+.modal-window-body,
+.modal-window-footer { padding: 1em; }
+.modal-window-header { padding-bottom: 0; }
+.modal-window-footer { padding-top: 0; }
+
+/* hide footer when not in use */
+.modal-window-footer:empty { display: none; }
+
+/* ----- header ----- */
+.modal-window-header {}
+.modal-window-header-title {
+    font-weight: bold;
+    /*border under title, unless it's empty*/
+    border-bottom: 1px solid #EEE;
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+    padding-bottom: 0.5em;
+}
+.modal-window-header-title:empty {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.modal-window-header-close {
+    float: right;
+    padding: 1em;
+    margin-top: -1em;
+    margin-right: -1em;
+}
+
+/* ----- body ----- */
+.modal-window-body {
+    position: relative;
+}
+
+/* ----- footer ----- */
+.modal-window-footer {}
+
+
+/* ----- Modifications ----- */
+
+/* image popup or simpel content (where simple content takes width of it's content, same as an image, e.g. popup enquire forms etc) */
+.modal-window-is-image,
+.modal-window-is-simple,
+.modal-window-is-youtube,
+.modal-window-is-wide {
+    text-align: center;
+}
+.modal-window-is-image .modal-window-inner,
+.modal-window-is-simple .modal-window-inner,
+.modal-window-is-youtube .modal-window-inner,
+.modal-window-is-wide .modal-window-inner {
+    display: inline-block;
+    /* return to left aligned inside inner content */
+    text-align: left;
+    /* drop max-width, let the content decide this :), well, up till max width of window */
+    max-width: 100%;
+}
+
+/* iframe popup */
+.modal-window-is-iframe {}
+.modal-window-is-iframe iframe {
+    width: 100%;
+    border: none;
+    min-height: 400px;
+}
+.modal-window-is-wide .modal-window-inner {
+    width: 100%;
+}
+@media screen and (min-width: 35.5em) {
+    .modal-window-is-wide .modal-window-inner {
+        width: 60%;
+    }
+}
+
+/* cart popup */
+.modal-window-is-cart {
+    /* ----- see ./cart.css ----- */
+}
+
+/* theme / header style -> see ../theme/default.css.twig */
+
+/* Checkout "spash" page, hide it's old close button, as it now uses this modal too */
+#splash_page_main .splash_close { display: none; }
+
+/* Image gallery controls */
+.modal-window-gallery-controls a {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    height: 100%;
+
+    /* ie hack, no hover on transparent element, blank image instead ;) */
+    background: url("/images/blank.gif");
+}
+.modal-window-gallery-controls a:hover:before,
+.modal-window-gallery-controls a:active:before {
+    position: absolute;
+    top: 50%;
+    margin-top: -1em;
+
+    /* style */
+    background: #FFF;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 1em;
+    color: #444;
+    font-weight: bold;
+    font-size: 120%;
+}
+.modal-window-gallery-controls a[href="#prev"] {
+    left: 0;
+}
+.modal-window-gallery-controls a[href="#next"] {
+    right: 0;
+}
+.modal-window-gallery-controls a[href="#prev"]:hover:before,
+.modal-window-gallery-controls a[href="#prev"]:active:before {
+    content: " Prev ";
+    border-radius: 0 2em 2em 0;
+    left: 0;
+}
+.modal-window-gallery-controls a[href="#next"]:hover:before,
+.modal-window-gallery-controls a[href="#next"]:active:before {
+    content: " Next ";
+    border-radius: 2em 0 0 2em;
+    right: 0;
+}

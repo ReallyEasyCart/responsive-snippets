@@ -1,14 +1,15 @@
 jQuery(function ($) {
     
     var config = {
-        current_country: 'UK', // UK, US or ASIA
-        uk_flag: '/userfiles/images/website_imgs/uk_flag.png',
+        current_country: 'ASIA', // UK, US or ASIA
+        apiKey: 'XXXXXXXXXX',
+        uk_flag: 'img/uk_flag.png',
         uk_title: 'UK',
         uk_url: 'http://www.forgeuk.recds12.co.uk',
-        us_flag: '/userfiles/images/website_imgs/us_flag.png',
+        us_flag: 'img/us_flag.png',
         us_title: 'US',
         us_url: 'http://www.forgeus.recds12.co.uk',
-        asia_flag: '/userfiles/images/website_imgs/asia_flag.png',
+        asia_flag: 'img/asia_flag.png',
         asia_title: 'Asia',
         asia_url: 'http://www.forgemotorsport.asia'
     };
@@ -116,9 +117,9 @@ jQuery(function ($) {
         return false;
     };
 
-    if (window.CookiePolicy.check('preferences') || !window.CookiePolicy) {
-        if (!$.cookie('rec-country-select') && !getUrlParameter('overrideCookie')) {
-            $.getJSON("https://pro.ip-api.com/json/?key=XXXXXXXXXX&callback=?", function(data) {
+    if (!window.CookiePolicy || (window.CookiePolicy && window.CookiePolicy.check('preferences'))) {
+        if (!$.cookie('country-select') && !getUrlParameter('overrideCookie')) {
+            $.getJSON("https://pro.ip-api.com/json/?key=" + config.apiKey + "&callback=?", function(data) {
                 // Get the tld of the domain (.co.uk, .com e.t.c) and the country code returned by ip-api.com
                 var countryCode = getUrlParameter('countrySelectCode') || data.countryCode;
                 
@@ -162,8 +163,8 @@ jQuery(function ($) {
                                     </td>\
                             </table>',
                             onCloseCallback: function () {
-                                if (!$.cookie('rec-country-select')) {
-                                    $.cookie('rec-country-select', 'stay', { expires: 365 });
+                                if (!$.cookie('country-select')) {
+                                    $.cookie('country-select', 'stay', { expires: 365 });
                                 }
                             }
                         });
@@ -174,7 +175,7 @@ jQuery(function ($) {
 
                             var action = $(this).data('action');
 
-                            $.cookie('rec-country-select', action, { expires: 365 });
+                            $.cookie('country-select', action, { expires: 365 });
 
                             if (action !== 'stay') {
                                 window.location = action;
@@ -188,18 +189,20 @@ jQuery(function ($) {
 
                         // We had to add the cookie modal close event manually by putting "REC.Events.publish('cookie-modal-close');"
                         // into cookie-policy.js in the part that says "modal.on('close', function () { ... }"
-                        REC.Events.subscribe('modal.cookie-law.close', function () {
-                            countrySelectModal.open();
-                        });
+                        if (window.REC) {
+                            REC.Events.subscribe('modal.cookie-law.close', function () {
+                                countrySelectModal.open();
+                            });
+                        }
                     }
                 } else {
-                    $.cookie('rec-country-select', 'stay', { expires: 365 });
+                    $.cookie('country-select', 'stay', { expires: 365 });
                 }
             });
         } else if (getUrlParameter('overrideCookie')) {
-            $.cookie('rec-country-select', 'stay', { expires: 365 });
-        } else if ($.cookie('rec-country-select') !== 'stay') {
-            window.location = $.cookie('rec-country-select');
+            $.cookie('country-select', 'stay', { expires: 365 });
+        } else if ($.cookie('country-select') !== 'stay') {
+            window.location = $.cookie('country-select');
         }
     }
 });

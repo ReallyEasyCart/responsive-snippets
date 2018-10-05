@@ -252,8 +252,7 @@
         }
 
         // make sure document is ready before initiating
-        $doc.ready($.proxy(this.init, this));
-
+        this.init();
     };
 
     // on init
