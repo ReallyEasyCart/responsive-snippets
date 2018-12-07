@@ -1,6 +1,8 @@
+
 <!-- Header content -->
 <header id="header" class="layout-container" role="banner">
     <div class="layout-container-inner clearfix">
+
         {% block header_logo %}
             <!-- Logo -->
             <div class="header-logo pull-left-md">
@@ -16,6 +18,24 @@
                         <span class="header-slogan h3">{{ company.slogan }}</span>
                     {% endif %}
                 {% endif %}
+            </div>
+        {% endblock %}
+
+        {% block header_nav_icons %}
+            <!-- nav icons -->
+            <div class="header-nav-icons">
+
+                {# when shop mode is enabled, the nav auto expands both the nav and the search #}
+                <a data-toggle=".header-nav" class="nav-icon nav-toggle-icon menu-mobile">
+                    <i class="fa fa-bars fa-lg"></i>
+                </a>
+                <a href="/shop.php?p=view_cart" class="nav-icon nav-cart-icon open-cart">
+                    <i class="fa fa-shopping-cart fa-lg" {% if cart.qty != 0 %}data-qty="{{ cart.qty }}"{% endif %}></i>
+                </a>
+                <a data-toggle=".header-search" class="nav-icon nav-search-icon">
+                    <i class="fa fa-search fa-lg"></i>
+                </a>
+
             </div>
         {% endblock %}
 
@@ -37,67 +57,68 @@
 
                 <ul class="nav-primary">
                     <li class="is-current">
-                		<a accesskey="1" href="/Home.html" title="Home">Single Link</a>
-                	</li>
-                	<li>
-                		<a accesskey="2" href="#" title="About Us">Mega Menu</a>
-                		<ul class="has-background">
-                			<li>
-                				<a href="#">School</a>
-                				<ul>
-                					<li><a href="#">Leadership</a></li>
-                					<li><a href="#">History</a></li>
-                					<li><a href="#">Locations</a></li>
-                					<li><a href="#">Careers</a></li>
-                					<li><a href="#">Leadership</a></li>
-                					<li><a href="#">History</a></li>
-                					<li><a href="#">Locations</a></li>
-                					<li><a href="#">Careers</a></li>
-                					<li><a href="#">Leadership</a></li>
-                					<li><a href="#">History</a></li>
-                					<li><a href="#">Locations</a></li>
-                					<li><a href="#">Careers</a></li>
-                				</ul>
-                			</li>
-                			<li>
-                			    <a href="#">Stormtroopers</a>
-                			    <ul>
-                			        <li><img src="http://static.webshopapp.com/shops/178694/files/182389919/star-wars-fluid-star-wars-masked-troopers-displate.jpg" style="margin: auto; width: 80%;"></li>
-                			        <li><a href="#" style="text-align: center;">View more Stormtroopers</a></li>
-                			    </ul>
-                			</li>
-                			<li>
-                			    <a href="#">Avengers</a>
-                			    <ul>
-                			        <li><img src="http://static.webshopapp.com/shops/178694/files/168412448/marvel-falcon-marvel-dark-edition-displate.jpg" style="margin: auto; width: 80%;"></li>
-                			        <li><a href="#" style="text-align: center;">View more Avengers</a></li>
-                			    </ul>
-                			</li>
-                			<li>
-                				<a href="#">School</a>
-                				<ul>
-                					<li><a href="#">Leadership</a></li>
-                					<li><a href="#">History</a></li>
-            					</ul>
-            				</li>
-            				<li>
-                				<a href="#">School</a>
-                				<ul>
-                					<li><a href="#">Leadership</a></li>
-                					<li><a href="#">History</a></li>
-            					</ul>
-            				</li>
-                		</ul>
-                	</li>
-                	<li>
-                		<a accesskey="5" href="#" title="News">Dropdown</a>
-                		<ul>
-                			<li>
-                				<a href="/News/Demo.html" title="Demo">Demo</a>
-                			</li>
-                		</ul>
-                	</li>
-                	{% if setup.is_shop %}
+                        <a accesskey="1" href="/Home.html" title="Home">Single Link</a>
+                    </li>
+                    <li>
+                        <a accesskey="2" href="#" title="About Us">Mega Menu</a>
+                        <ul class="has-background">
+                            <li>
+                                <a href="#">School</a>
+                                <ul>
+                                    <li><a href="#">Leadership</a></li>
+                                    <li><a href="#">History</a></li>
+                                    <li><a href="#">Locations</a></li>
+                                    <li><a href="#">Careers</a></li>
+                                    <li><a href="#">Leadership</a></li>
+                                    <li><a href="#">History</a></li>
+                                    <li><a href="#">Locations</a></li>
+                                    <li><a href="#">Careers</a></li>
+                                    <li><a href="#">Leadership</a></li>
+                                    <li><a href="#">History</a></li>
+                                    <li><a href="#">Locations</a></li>
+                                    <li><a href="#">Careers</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Stormtroopers</a>
+                                <ul>
+                                    <li><img src="http://static.webshopapp.com/shops/178694/files/182389919/star-wars-fluid-star-wars-masked-troopers-displate.jpg" style="margin: auto; width: 80%;"></li>
+                                    <li><a href="#" style="text-align: center;">View more Stormtroopers</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Avengers</a>
+                                <ul>
+                                    <li><img src="http://static.webshopapp.com/shops/178694/files/168412448/marvel-falcon-marvel-dark-edition-displate.jpg" style="margin: auto; width: 80%;"></li>
+                                    <li><a href="#" style="text-align: center;">View more Avengers</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">School</a>
+                                <ul>
+                                    <li><a href="#">Leadership</a></li>
+                                    <li><a href="#">History</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">School</a>
+                                <ul>
+                                    <li><a href="#">Leadership</a></li>
+                                    <li><a href="#">History</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="mega-menu-single">
+                        <a accesskey="5" href="#" title="News">Dropdown</a>
+                        <ul>
+                            <li>
+                                <a href="/News/Demo.html" title="Demo">Demo</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    {% if setup.is_shop %}
                         <li class="hide-unless-mobile"><a href="/shop.php?p=view_cart" class="open-cart">View Cart
                             <span data-format="(%d)" class="cart-qty">{% if cart.qty != 0 %}({{ cart.qty }}){% endif %}</span>
                         </a></li>
@@ -111,7 +132,7 @@
                     {% else %}
                         <li class="hide-unless-mobile"><a href="/login.php">Login</a></li>
                         {% if setup.is_shop %}
-                            <li><a href="/register.php">Register</a></li>
+                            <li class="hide-unless-mobile"><a href="/register.php">Register</a></li>
                         {% endif %}
                     {% endif %}
                 </ul>

@@ -30,6 +30,10 @@
     background-color: transparent;
 }
 
+nav.mega-menu li.mega-menu-single {
+    position: relative;
+}
+
 /* Mega Menu */
 nav.mega-menu .hide-unless-mobile {
     display: none !important;
@@ -156,7 +160,7 @@ nav.mega-menu > ul.nav-primary > li > ul > li > ul > li a {
     border: 0;
 }
 nav.mega-menu > ul.nav-primary > li > ul.normal-sub {
-    width: 300px;
+    width: 100%;
     left: auto;
     padding: 10px 20px;
 }
