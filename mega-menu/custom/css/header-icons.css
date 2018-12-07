@@ -1,0 +1,23 @@
+.header-nav-icons {
+	background-color: rgba(0, 0, 0, 0.1);
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	padding: 5px;
+}
+#header .nav-icon {
+	display: inline-block;
+	color: #FFF;
+	flex: 1;
+	border-right: 1px solid rgba(255, 255, 255, 0.4);
+	padding: 10px;
+}
+#header .nav-icon:last-child {
+	border-right: none;
+}
+
+@media screen and (min-width: 48em) {
+	.header-nav-icons {
+		display: none;
+	}
+}
