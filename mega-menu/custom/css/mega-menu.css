@@ -85,6 +85,9 @@ nav.mega-menu > ul.nav-primary > li {
     padding: 0;
     margin: 0;
 }
+nav.mega-menu > ul.nav-primary > li.is-current {
+    background: rgba(0, 0, 0, 0.2);
+}
 nav.mega-menu > ul.nav-primary > li a {
     text-decoration: none;
     padding: 1em 2em;
@@ -178,6 +181,7 @@ nav.mega-menu > ul.nav-primary > li > ul.normal-sub > li a {
     border: 0;
     box-shadow: none;
 }
+
 /* ––––––––––––––––––––––––––––––––––––––––––––––––––
 Mobile style's
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

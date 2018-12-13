@@ -56,67 +56,7 @@
             <nav class="header-nav nav nav-sub-indicators nav-sub-indicator-arrows mega-menu" id="navigation" role="navigation">
 
                 <ul class="nav-primary">
-                    <li class="is-current">
-                        <a accesskey="1" href="/Home.html" title="Home">Single Link</a>
-                    </li>
-                    <li>
-                        <a accesskey="2" href="#" title="About Us">Mega Menu</a>
-                        <ul class="has-background">
-                            <li>
-                                <a href="#">School</a>
-                                <ul>
-                                    <li><a href="#">Leadership</a></li>
-                                    <li><a href="#">History</a></li>
-                                    <li><a href="#">Locations</a></li>
-                                    <li><a href="#">Careers</a></li>
-                                    <li><a href="#">Leadership</a></li>
-                                    <li><a href="#">History</a></li>
-                                    <li><a href="#">Locations</a></li>
-                                    <li><a href="#">Careers</a></li>
-                                    <li><a href="#">Leadership</a></li>
-                                    <li><a href="#">History</a></li>
-                                    <li><a href="#">Locations</a></li>
-                                    <li><a href="#">Careers</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Stormtroopers</a>
-                                <ul>
-                                    <li><img src="http://static.webshopapp.com/shops/178694/files/182389919/star-wars-fluid-star-wars-masked-troopers-displate.jpg" style="margin: auto; width: 80%;"></li>
-                                    <li><a href="#" style="text-align: center;">View more Stormtroopers</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Avengers</a>
-                                <ul>
-                                    <li><img src="http://static.webshopapp.com/shops/178694/files/168412448/marvel-falcon-marvel-dark-edition-displate.jpg" style="margin: auto; width: 80%;"></li>
-                                    <li><a href="#" style="text-align: center;">View more Avengers</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">School</a>
-                                <ul>
-                                    <li><a href="#">Leadership</a></li>
-                                    <li><a href="#">History</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">School</a>
-                                <ul>
-                                    <li><a href="#">Leadership</a></li>
-                                    <li><a href="#">History</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="mega-menu-single">
-                        <a accesskey="5" href="#" title="News">Dropdown</a>
-                        <ul>
-                            <li>
-                                <a href="/News/Demo.html" title="Demo">Demo</a>
-                            </li>
-                        </ul>
-                    </li>
+                    {{ header.menu }}
                     
                     {% if setup.is_shop %}
                         <li class="hide-unless-mobile"><a href="/shop.php?p=view_cart" class="open-cart">View Cart
