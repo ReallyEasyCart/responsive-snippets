@@ -94,6 +94,9 @@ nav.mega-menu > ul.nav-primary > li a {
     display: block;
     color: #FFF;
 }
+nav.mega-menu > ul.nav-primary > li a:hover {
+    text-decoration: underline;
+}
 nav.mega-menu > ul.nav-primary > li:hover {
     background: #327596;
 }
@@ -121,8 +124,7 @@ nav.mega-menu > ul.nav-primary > li > ul:after {
 }
 nav.mega-menu > ul.nav-primary > li > ul > li {
     margin: 0;
-    padding-bottom: 0;
-    margin-bottom: 10px;
+    padding-bottom: 10px;
     list-style: none;
     width: 25%;
     background: none;
@@ -165,14 +167,14 @@ nav.mega-menu > ul.nav-primary > li > ul > li > ul > li a {
 nav.mega-menu > ul.nav-primary > li > ul.normal-sub {
     width: 100%;
     left: auto;
-    padding: 10px 20px;
+    padding: 0;
 }
 nav.mega-menu > ul.nav-primary > li > ul.normal-sub > li {
     width: 100%;
 }
 nav.mega-menu > ul.nav-primary > li > ul.normal-sub > li a {
     border: 0;
-    padding: 1em 0;
+    padding: 10px 20px;
 }
 #header .nav li li {
     border-bottom: 0;

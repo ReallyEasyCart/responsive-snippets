@@ -1,5 +1,5 @@
 # Default Code
 
-1. Either copy the JS into the site.js.twig file, or include it using: `{% include "path/to/file" %}`.
-2. Copy the contents of the CSS file into css/modules/nav.css so that it overrides the existing navbar css.
+1. Overwrite js/modules/nav.js with mega-menu.js so that the default JS doesn't interfere.
+2. Overwrite css/modules/nav.css with mega_menu.css so that the default CSS doesn't interfere.
 3. Edit html/sections/header.html.twig and add the class "mega-menu" to the main nav element (the one that has a class of "header-nav")
