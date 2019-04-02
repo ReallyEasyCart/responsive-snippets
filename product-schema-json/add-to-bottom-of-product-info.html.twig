@@ -1,0 +1,14 @@
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "Product",
+  "name": {{ product.name | json }},
+  "image": "{{ directory ~ product.images_array.0.src[1:] }}",
+  "description": {{ product.description | json }},
+  "mpn": {{ product.code | json }},
+  "brand": {
+    "@type": "Thing",
+    "name": {{ product.manufacturer[14:] | json }}
+  }
+}
+</script>
