@@ -43,3 +43,10 @@
     content: "\f006";
     color: #b8b8b8;
 }
+
+/* google button*/
+a.google-review-popup-gmb-link.rec-btn {
+    background: #2861c5;
+    color: #FFF;
+    border: #2861c5;
+}
