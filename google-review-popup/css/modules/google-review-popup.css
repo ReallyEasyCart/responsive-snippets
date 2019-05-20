@@ -8,7 +8,13 @@
 .modal-window-is-google-review-popup .modal-window-inner {
     max-width: 600px;
 }
+/* modal header text colour */
 .modal-window-header-title {
+    color: #444;
+}
+/* force a nicer default text colour for buttons in the modal */
+.modal-window-is-google-review-popup .rec-form .rec-form-button {
+    color: #FFF !important;
 }
 /* center everything by default */
 .modal-window-is-google-review-popup .modal-window-body {
