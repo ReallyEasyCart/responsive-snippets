@@ -95,5 +95,11 @@ jQuery(function ($) {
 
         });
 
+        // detect /?review in url and auto pop
+        if (window.location.search == '?review') {
+            setTimeout(function () {
+                $openReviewPopup.click();
+            }, 1000); // slight delay to allow everything to finish loading
+        }
     }
 });
