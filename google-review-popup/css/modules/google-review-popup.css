@@ -1,8 +1,14 @@
 /* GoogleMyBusiness reviews popup */
 
+/* popup button */
+.google-review-popup {
+}
+
 /* modal */
 .modal-window-is-google-review-popup .modal-window-inner {
     max-width: 600px;
+}
+.modal-window-header-title {
 }
 /* center everything by default */
 .modal-window-is-google-review-popup .modal-window-body {
@@ -17,12 +23,17 @@
 /* clickable rating stars */
 .google-review-popup-stars {
     text-align: center;
+    height: 48px; /* same height as stars */
 }
 .google-review-popup-stars input {
+    visibility: hidden;
+}
+.google-review-popup-stars .input {
+    display: inline-block;
     width: 48px; /* same as font size for the stars */
     height: 48px;
 }
-.google-review-popup-stars input::before {
+.google-review-popup-stars .input::before {
     font: 48px "FontAwesome";
     background: #FFF;
     display: block;
@@ -31,15 +42,15 @@
 
 /* almost pure css rating stars, i'm using js to add .selected to the parent though :( */
 /* filled in star */
-.google-review-popup-stars:hover input::before, /* when hovering, default to all filled in */
-.google-review-popup-stars.selected input::before { /* same once user makes first selection */
+.google-review-popup-stars:hover .input::before, /* when hovering, default to all filled in */
+.google-review-popup-stars.selected .input::before { /* same once user makes first selection */
     content: "\f005";
     color: #eb6e00;
 }
 /* outline star */
-.google-review-popup-stars input::before, /* default as outlines before user starts makeing a selection */
-.google-review-popup-stars input:hover ~ input::before, /* and when selecting, show ones to the right as outlines */
-.google-review-popup-stars:not(:hover) input:checked ~ input::before { /* finaly, when not hovering anymore, outline the ones to the right of the selected rating */
+.google-review-popup-stars .input::before, /* default as outlines before user starts makeing a selection */
+.google-review-popup-stars .input:hover ~ .input::before, /* and when selecting, show ones to the right as outlines */
+.google-review-popup-stars:not(:hover) .input.checked ~ .input::before { /* finaly, when not hovering anymore, outline the ones to the right of the selected rating */
     content: "\f006";
     color: #b8b8b8;
 }

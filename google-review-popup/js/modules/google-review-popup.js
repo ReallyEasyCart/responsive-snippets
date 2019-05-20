@@ -42,7 +42,7 @@ jQuery(function ($) {
             html += '<p>Your feedback is important to us so please take a moment to rate us.</p>';
             html += '<p class="google-review-popup-stars">';
             for (var i = 1; i <= 5; i++) {
-                html += '<input name="rating" type="radio" value="' + i + '">';
+                html += '<label class="input"><input name="rating" type="radio" value="' + i + '"></label>';
             }
             html += '</p>';
             html += '<div class="google-review-popup-result-data"></div>';
@@ -54,6 +54,8 @@ jQuery(function ($) {
                 var $rating = $(this),
                     rating = $rating.val();
 
+                $rating.parents('.google-review-popup-stars').find('label').removeClass('checked');
+                $rating.parents('label').addClass('checked');
                 $rating.parents('.google-review-popup-stars').addClass('selected');
 
                 // watch for modal close clicks
