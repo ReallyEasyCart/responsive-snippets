@@ -12,3 +12,9 @@ Here's the steps to install this:
 <h1>Thanks for your feedback!</h1>
 <p>This helps us to improve our products and improve our service to customers.</p>
 ```
+6. Add a little CSS to hide the thanks form heading:
+```css
+#rec-form-Ug24yCT78wTPu7YRPIs2 .rec-form-header {
+    display: none;
+}
+```
