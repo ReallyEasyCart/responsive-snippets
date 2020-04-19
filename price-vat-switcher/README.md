@@ -77,7 +77,7 @@ After:
 <span class="product-info-price-before pp_auto_price_inc_vat rec-price-inc-vat">{{ product.price_inc_vat }}</span>
 <span class="product-info-price-before pp_auto_price_ex_vat rec-price-ex-vat">{{ product.price_no_vat }}</span>
 <span class="h2 product-info-price product-info-price-special pp_auto_special_price_inc_vat rec-price-inc-vat" itemprop="price" content="{{ product.special_price_inc_vat | replace({'&pound;': ''}) }}">{{ product.special_price_inc_vat }}</span>
-<span class="h2 product-info-price product-info-price-special pp_auto_special_price_ex_vat rec-price-no-vat">{{ product.special_price_no_vat }}</span>
+<span class="h2 product-info-price product-info-price-special pp_auto_special_price_ex_vat rec-price-ex-vat">{{ product.special_price_no_vat }}</span>
 ```
 
 As above we have split the prices out into Inc VAT and Ex VAT, but we've also remove the `pp_price` and `pp_special_price` IDs and added `pp_auto_price_X_vat` and `pp_auto_special_price_X_vat` classes. This is because there is javascript that automatically updates the prices when the quantity is changed. Using these classes ensures that the javascript will still work.
@@ -90,7 +90,7 @@ The normal product price is changed much in that same way as the special price. 
     <span class="product-info-price-before pp_auto_price_inc_vat rec-price-inc-vat">{{ product.price_inc_vat }}</span>
     <span class="product-info-price-before pp_auto_price_ex_vat rec-price-ex-vat">{{ product.price_no_vat }}</span>
     <span class="h2 product-info-price product-info-price-special pp_auto_special_price_inc_vat rec-price-inc-vat" itemprop="price" content="{{ product.special_price_inc_vat | replace({'&pound;': ''}) }}">{{ product.special_price_inc_vat }}</span>
-    <span class="h2 product-info-price product-info-price-special pp_auto_special_price_ex_vat rec-price-no-vat">{{ product.special_price_no_vat }}</span>
+    <span class="h2 product-info-price product-info-price-special pp_auto_special_price_ex_vat rec-price-ex-vat">{{ product.special_price_no_vat }}</span>
 {% elseif product.is_upcomming %}
     <span class="product-info-coming-soon">Coming Soon!</span>
 {% else %}
