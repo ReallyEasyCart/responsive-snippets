@@ -65,12 +65,12 @@
             // get rates
             getRates: function (callback) {
                 $.ajax({
-                    url: 'https://api.fixer.io/latest',
+                    url: '/api/v1/currency-converter?api_key=API_KEY_HERE',
                     dataType: 'jsonp',
                     jsonp: "callback",
                     success: function(data) {
                         window.fx.rates = data.rates;
-                        window.fx.rates.EUR = 1;
+                        // window.fx.rates.EUR = 1;
                         callback();
                     }
                 });
@@ -118,7 +118,7 @@
         // loop prices, converting the value
         var priceSelectors = [
             // price elements
-            '#pp_price', '#pp_special_price', '.pcl-product-price', '.mini_product_price',
+            '#pp_price', '#pp_special_price', '.pcl-product-price', '.mini_product_price', '.pcl-product-each-price',
             // cart prices
             '.rec-full-cart-item-each-price div[id^="update_each_"]', '.rec-full-cart-item-total-price div[id^="total"] strong', '#overall_total_costs',
             '.rec-full-cart-item-each-price-breakdown', '.rec-full-cart-item-options',
@@ -178,6 +178,9 @@
                 $price.html(priceHtml);
 
             });
+
+            // Set currency in header
+            $('.nav-currency-icon i.fa').attr('data-currency', $('<textarea>').html(Converter.getUserCurrencySymbol()).text());
 
         }
 
