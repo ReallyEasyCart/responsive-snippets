@@ -1,5 +1,3 @@
-{{ source("js/custom_app.js") }}
-
 (function ($) {
 
     //
